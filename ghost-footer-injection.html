@@ -1,0 +1,9 @@
+<!-- Paste into Ghost Admin → Settings → Code injection → Site Footer -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  if (document.querySelector('.homepage-hero')) {
+    var title = document.querySelector('.article-title');
+    if (title) title.style.display = 'none';
+  }
+});
+</script>

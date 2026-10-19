@@ -1,0 +1,24 @@
+{
+  "name": "yzaverse-puzzle-books",
+  "version": "1.0.0",
+  "description": "Yzaverse Puzzle Books — static site and content tools",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dry-run": "node src/index.js --dry-run",
+    "build": "node src/build-static.js"
+  },
+  "keywords": [],
+  "author": "Diana Perez",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "@tryghost/admin-api": "^1.14.14",
+    "canvas": "^3.2.3",
+    "dotenv": "^18.0.8",
+    "pdf-lib": "^1.17.1",
+    "pdf2pic": "^3.2.0",
+    "pdfjs-dist": "^6.4.299",
+    "sharp": "^0.34.2"
+  }
+}

@@ -1,0 +1,191 @@
+<!-- Paste into Ghost Admin → Settings → Code injection → Site Header -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  --color-darkgrey: #3D2B1F;
+  --color-midgrey: #7A6555;
+  --color-lightgrey: #FDF6EE;
+  --color-border: #E8D5C0;
+  --ghost-accent-color: #C2703E;
+  --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-serif: 'Lora', Georgia, serif;
+}
+
+body, .viewport { background-color: #FDF6EE !important; color: #3D2B1F !important; }
+
+/* Header */
+.gh-head { background-color: #5C3D2E !important; }
+.gh-head a { color: #FFF8F0 !important; }
+.gh-head a:hover { color: #F5C98A !important; }
+.gh-head-button { background-color: #C2703E !important; color: #FFF8F0 !important; border-radius: 20px !important; }
+
+/* Post cards */
+.post-card {
+  background: #FFFFFF !important;
+  border-radius: 16px !important;
+  box-shadow: 0 2px 12px rgba(92,61,46,0.08) !important;
+  border: 1px solid #E8D5C0 !important;
+  overflow: hidden !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+}
+.post-card:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 8px 30px rgba(92,61,46,0.15) !important;
+}
+.post-card-title { font-family: 'Lora', Georgia, serif !important; color: #3D2B1F !important; }
+.post-card-excerpt { font-family: 'Nunito', sans-serif !important; color: #5C3D2E !important; }
+
+/* Article pages */
+.article-title { font-family: 'Lora', Georgia, serif !important; color: #3D2B1F !important; }
+.gh-content { font-family: 'Nunito', sans-serif !important; color: #3D2B1F !important; line-height: 1.75 !important; }
+.gh-content h2, .gh-content h3, .gh-content h4 {
+  font-family: 'Lora', Georgia, serif !important;
+  color: #3D2B1F !important;
+}
+.gh-content a { color: #C2703E !important; }
+.gh-content hr { border-color: #E8D5C0 !important; }
+
+/* Book covers — side by side on detail pages */
+.gh-content .book-covers {
+  display: flex !important;
+  justify-content: center !important;
+  gap: 20px !important;
+  margin: 0 auto 1.5em !important;
+}
+.gh-content .book-cover {
+  max-width: 180px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 3px 12px rgba(60,30,10,0.15) !important;
+}
+
+/* Horizontal book cards on listing pages */
+.gh-content .book-card {
+  display: flex !important;
+  align-items: flex-start !important;
+  gap: 24px !important;
+  padding: 20px 0 !important;
+  border-bottom: 1px solid #E8D5C0 !important;
+}
+.gh-content .book-card:last-child {
+  border-bottom: none !important;
+}
+.gh-content .book-card-image {
+  flex-shrink: 0 !important;
+}
+.gh-content .book-thumb {
+  width: 120px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 2px 8px rgba(60,30,10,0.12) !important;
+}
+.gh-content .book-card-info {
+  flex: 1 !important;
+}
+.gh-content .book-card-info h3 {
+  margin-top: 0 !important;
+}
+.gh-content .book-card-info p {
+  margin: 0.4em 0 !important;
+}
+
+/* Amazon button */
+.gh-content a.amazon-btn,
+a.amazon-btn {
+  display: inline-block !important;
+  background: #FF9900 !important;
+  color: #111111 !important;
+  font-family: 'Nunito', sans-serif !important;
+  font-weight: 700 !important;
+  font-size: 14px !important;
+  padding: 10px 24px !important;
+  border-radius: 8px !important;
+  text-decoration: none !important;
+  transition: background 0.2s ease !important;
+}
+.gh-content a.amazon-btn:hover,
+a.amazon-btn:hover {
+  background: #E8890A !important;
+  text-decoration: none !important;
+  color: #111111 !important;
+}
+
+/* Homepage hero */
+.gh-content .homepage-hero {
+  text-align: center !important;
+  padding: 1em 0 2em !important;
+}
+.gh-content .hero-tagline {
+  font-size: 1.2em !important;
+  color: #5C3D2E !important;
+  margin: 0 !important;
+}
+.gh-content .hero-sub {
+  color: #7A6555 !important;
+  margin-top: 0.4em !important;
+}
+
+/* Homepage book grid */
+.gh-content .book-grid {
+  display: grid !important;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)) !important;
+  gap: 24px !important;
+  max-width: 720px !important;
+  margin: 0 auto 2.5em !important;
+}
+.gh-content .book-grid-item {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: center !important;
+  text-decoration: none !important;
+  padding: 16px !important;
+  border-radius: 12px !important;
+  transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+}
+.gh-content .book-grid-item:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 6px 20px rgba(92,61,46,0.12) !important;
+}
+.gh-content .book-grid-cover {
+  width: 140px !important;
+  border-radius: 4px !important;
+  box-shadow: 0 3px 12px rgba(60,30,10,0.15) !important;
+  margin-bottom: 12px !important;
+}
+.gh-content .book-grid-title {
+  font-family: 'Lora', Georgia, serif !important;
+  font-size: 0.95em !important;
+  color: #3D2B1F !important;
+  text-align: center !important;
+  margin-bottom: 4px !important;
+}
+.gh-content .book-grid-price {
+  font-family: 'Nunito', sans-serif !important;
+  font-size: 0.85em !important;
+  color: #C2703E !important;
+  font-weight: 700 !important;
+}
+
+/* Footer */
+.site-footer {
+  background-color: #3D2B1F !important;
+  color: #E8D5C0 !important;
+  font-family: 'Nunito', sans-serif !important;
+}
+.site-footer a { color: #F5C98A !important; }
+.site-footer a:hover { color: #FFFFFF !important; }
+
+/* Selection */
+::selection { background-color: #F5C98A !important; color: #3D2B1F !important; }
+
+@media (max-width: 767px) {
+  .post-card { border-radius: 12px !important; }
+  .gh-content .book-covers { gap: 12px !important; }
+  .gh-content .book-cover { max-width: 140px !important; }
+  .gh-content .book-card { gap: 16px !important; }
+  .gh-content .book-thumb { width: 90px !important; }
+  .gh-content .book-grid { grid-template-columns: repeat(2, 1fr) !important; gap: 16px !important; }
+  .gh-content .book-grid-cover { width: 110px !important; }
+}
+</style>
