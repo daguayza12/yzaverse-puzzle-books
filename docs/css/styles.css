@@ -456,26 +456,29 @@ a.amazon-btn:hover {
   .landing-hero { padding: 1.5em 0.5em 1.2em; }
   .landing-hero h1 { font-size: 1.6rem; }
   .landing-hero p { font-size: 1rem; }
-  .landing-section { padding: 2em 0; }
-  .landing-section h2 { font-size: 1.3rem; }
-  .landing-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .landing-grid-cover { width: 130px; }
+  .landing-section { padding: 1.5em 0; }
+  .landing-section h2 { font-size: 1.2rem; }
+  .landing-section .section-sub { font-size: 0.95rem; margin-bottom: 1.2em; }
+
+  .site-footer { padding: 20px 16px; margin-top: 2em; }
+  .landing-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .landing-grid-cover,
+  .book-grid-cover { width: 100%; max-width: 140px; }
   .landing-grid-item,
-  .book-grid-item { padding: 16px 10px; }
-  .coming-soon-card { padding: 2em 1.2em; }
+  .book-grid-item { padding: 14px 10px; }
+  .coming-soon-card { padding: 1.5em 1em; }
 
-  .content { padding: 1.8em 16px; }
-  .page-title { font-size: 1.5rem; }
+  .content { padding: 1.5em 16px; }
+  .page-title { font-size: 1.4rem; }
 
-  .book-covers { gap: 12px; }
-  .book-cover { max-width: 150px; }
+  .book-covers { gap: 10px; }
+  .book-cover { max-width: 140px; }
 
-  .book-card { gap: 14px; }
-  .book-thumb { width: 100px; }
+  .book-card { gap: 12px; }
+  .book-thumb { width: 90px; }
 
-  .book-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
-  .book-grid-cover { width: 130px; }
-  .book-grid-title { font-size: 0.9em; }
+  .book-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .book-grid-title { font-size: 0.85em; }
 }
 
 /* ── Small phone (≤ 380px) ── */
