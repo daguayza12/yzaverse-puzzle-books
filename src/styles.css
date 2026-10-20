@@ -1,9 +1,12 @@
-/* ══════════════════════════════════════════════
-   Yzaverse Puzzle Books — Standalone Stylesheet
-   ══════════════════════════════════════════════ */
+/* ══════════════════════════════════════════
+   Yzaverse — Standalone Stylesheet
+   Warm, calm, ADHD-friendly design
+   Uses Open Props for shadows + easing
+   ══════════════════════════════════════════ */
 
 /* ── Reset ── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 img { max-width: 100%; height: auto; display: block; }
 a { text-decoration: none; }
 ul { list-style: disc inside; }
@@ -16,10 +19,15 @@ ul { list-style: disc inside; }
   --color-border: #E8D5C0;
   --color-accent: #C2703E;
   --color-header: #5C3D2E;
-  --color-warm-white: #FFF8F0;
   --color-gold: #F5C98A;
+  --color-card: rgba(255, 255, 255, 0.55);
   --font-sans: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-serif: 'Lora', Georgia, serif;
+  --max-width: 960px;
+  --content-width: 720px;
+  --shadow-cover: 0 4px 14px rgba(60, 30, 10, 0.15);
+  --radius-card: 14px;
+  --radius-cover: 8px;
 }
 
 body {
@@ -35,11 +43,15 @@ body {
 /* ── Site header / nav ── */
 .site-header {
   background-color: var(--color-header);
-  padding: 28px 24px;
+  box-shadow: var(--shadow-2, 0 1px 4px rgba(0, 0, 0, 0.08));
+  padding: 24px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
 .site-nav {
-  max-width: 960px;
+  max-width: var(--max-width);
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -49,28 +61,45 @@ body {
 
 .site-logo {
   font-family: var(--font-serif);
-  font-size: 2.2rem;
+  font-size: 1.8rem;
   font-weight: 700;
-  color: var(--color-warm-white);
+  color: var(--color-cream);
   margin-right: auto;
   letter-spacing: 0.02em;
 }
 .site-logo:hover { color: var(--color-gold); }
 
-.site-nav a {
-  color: var(--color-warm-white);
-  font-family: var(--font-sans);
-  font-size: 1.05rem;
-  font-weight: 600;
-  transition: color 0.2s ease;
+.nav-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
 }
-.site-nav a:hover { color: var(--color-gold); }
+
+.nav-pill {
+  color: var(--color-border);
+  font-size: 0.95rem;
+  font-weight: 600;
+  padding: 8px 18px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: background 0.2s var(--ease-2, ease),
+              color 0.2s var(--ease-2, ease),
+              border-color 0.2s var(--ease-2, ease);
+}
+.nav-pill:hover {
+  background: var(--color-gold);
+  color: var(--color-dark);
+  border-color: var(--color-gold);
+}
 
 /* ── Main content ── */
 main { flex: 1; }
 
 .content {
-  max-width: 720px;
+  max-width: var(--content-width);
   margin: 0 auto;
   padding: 2.5em 24px;
 }
@@ -94,6 +123,169 @@ main { flex: 1; }
 .content li { margin-bottom: 0.3em; }
 .content p { margin-bottom: 0.8em; }
 
+/* ══════════════════════════════════════════
+   Brand landing page
+   ══════════════════════════════════════════ */
+
+.landing { max-width: var(--max-width); margin: 0 auto; padding: 0 24px; }
+
+/* ── Landing hero ── */
+.landing-hero {
+  text-align: center;
+  padding: 4em 1em 3em;
+}
+
+.landing-hero h1 {
+  font-family: var(--font-serif);
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  line-height: 1.3;
+  margin-bottom: 0.3em;
+}
+
+.landing-hero .hero-accent {
+  color: var(--color-accent);
+}
+
+.landing-hero p {
+  font-size: 1.15rem;
+  color: var(--color-mid);
+  max-width: 520px;
+  margin: 0 auto;
+  line-height: 1.7;
+}
+
+/* ── Landing sections ── */
+.landing-section {
+  padding: 3em 0;
+}
+
+.landing-section h2 {
+  font-family: var(--font-serif);
+  font-size: 1.6rem;
+  color: var(--color-dark);
+  margin-bottom: 0.3em;
+}
+
+.landing-section .section-sub {
+  color: var(--color-mid);
+  margin-bottom: 2em;
+  font-size: 1.05rem;
+}
+
+.section-divider {
+  border: none;
+  border-top: 1px solid var(--color-border);
+  margin: 0;
+}
+
+/* ── Shared card style (DRY: landing grid + book grid) ── */
+.landing-grid-item,
+.book-grid-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  padding: 24px 16px;
+  border-radius: var(--radius-card);
+  background: var(--color-card);
+  transition: transform 0.2s var(--ease-2, ease),
+              box-shadow 0.25s var(--ease-2, ease),
+              background 0.2s var(--ease-2, ease);
+}
+.landing-grid-item:hover,
+.book-grid-item:hover {
+  transform: translateY(-4px);
+  background: #FFF;
+  box-shadow: var(--shadow-3, 0 6px 24px rgba(92, 61, 46, 0.12));
+}
+
+/* ── Shared cover image style ── */
+.landing-grid-cover,
+.book-grid-cover {
+  border-radius: var(--radius-cover);
+  box-shadow: var(--shadow-cover);
+  margin-bottom: 14px;
+}
+
+/* ── Shared title + price style ── */
+.landing-grid-title,
+.book-grid-title {
+  font-family: var(--font-serif);
+  font-size: 1em;
+  color: var(--color-dark);
+  text-align: center;
+  margin-bottom: 4px;
+}
+
+.landing-grid-price,
+.book-grid-price {
+  font-size: 0.9em;
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+/* ── Landing grid (wider) ── */
+.landing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 28px;
+}
+
+.landing-grid-cover { width: 180px; }
+
+/* ── Puzzle-books grid ── */
+.book-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px;
+  max-width: 760px;
+  margin: 0 auto 2.5em;
+}
+
+.book-grid-item { padding: 20px 16px; border-radius: 12px; }
+.book-grid-cover { width: 170px; }
+
+/* ── Coming soon section ── */
+.coming-soon-card {
+  background: var(--color-card);
+  border-radius: var(--radius-card);
+  padding: 2.5em 2em;
+  text-align: center;
+  border: 1px dashed var(--color-border);
+}
+
+.coming-soon-card h3 {
+  font-family: var(--font-serif);
+  font-size: 1.3rem;
+  color: var(--color-dark);
+  margin-bottom: 0.4em;
+}
+
+.coming-soon-card p {
+  color: var(--color-mid);
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+/* ── CTA link ── */
+.cta-link {
+  display: inline-block;
+  margin-top: 1.5em;
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--color-accent);
+  border-bottom: 2px solid var(--color-border);
+  padding-bottom: 2px;
+  transition: border-color 0.2s var(--ease-2, ease);
+}
+.cta-link:hover { border-color: var(--color-accent); }
+
+/* ══════════════════════════════════════════
+   Puzzle book pages
+   ══════════════════════════════════════════ */
+
 /* ── Book covers — detail pages ── */
 .book-covers {
   display: flex;
@@ -104,9 +296,9 @@ main { flex: 1; }
 
 .book-cover {
   max-width: 220px;
-  border-radius: 6px;
-  box-shadow: 0 4px 16px rgba(60, 30, 10, 0.15);
-  transition: transform 0.2s ease;
+  border-radius: var(--radius-cover);
+  box-shadow: var(--shadow-cover);
+  transition: transform 0.2s var(--ease-2, ease);
 }
 .book-cover:hover { transform: scale(1.03); }
 
@@ -125,8 +317,8 @@ main { flex: 1; }
 
 .book-thumb {
   width: 140px;
-  border-radius: 6px;
-  box-shadow: 0 2px 10px rgba(60, 30, 10, 0.12);
+  border-radius: var(--radius-cover);
+  box-shadow: var(--shadow-cover);
 }
 
 .book-card-info { flex: 1; }
@@ -142,14 +334,14 @@ a.amazon-btn {
   font-size: 14px;
   padding: 10px 24px;
   border-radius: 8px;
-  transition: background 0.2s ease;
+  transition: background 0.2s var(--ease-2, ease);
 }
 a.amazon-btn:hover {
   background: #E8890A;
   color: #111;
 }
 
-/* ── Homepage hero ── */
+/* ── Puzzle-books homepage hero ── */
 .homepage-hero {
   text-align: center;
   padding: 0.5em 0 2.5em;
@@ -167,52 +359,6 @@ a.amazon-btn:hover {
   color: var(--color-mid);
   margin-top: 0.5em;
   font-size: 1.05em;
-}
-
-/* ── Homepage book grid ── */
-.book-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 28px;
-  max-width: 760px;
-  margin: 0 auto 2.5em;
-}
-
-.book-grid-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-decoration: none;
-  padding: 20px 16px;
-  border-radius: 12px;
-  background: rgba(255, 255, 255, 0.5);
-  transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-}
-.book-grid-item:hover {
-  transform: translateY(-4px);
-  background: #FFF;
-  box-shadow: 0 6px 20px rgba(92, 61, 46, 0.12);
-}
-
-.book-grid-cover {
-  width: 170px;
-  border-radius: 6px;
-  box-shadow: 0 4px 14px rgba(60, 30, 10, 0.15);
-  margin-bottom: 14px;
-}
-
-.book-grid-title {
-  font-family: var(--font-serif);
-  font-size: 1em;
-  color: var(--color-dark);
-  text-align: center;
-  margin-bottom: 4px;
-}
-
-.book-grid-price {
-  font-size: 0.9em;
-  color: var(--color-accent);
-  font-weight: 700;
 }
 
 /* ── "Coming soon" badge ── */
@@ -234,11 +380,11 @@ a.amazon-btn:hover {
   padding: 32px 24px;
   text-align: center;
   font-size: 0.85rem;
-  margin-top: 2em;
+  margin-top: 3em;
 }
 
 .footer-inner {
-  max-width: 960px;
+  max-width: var(--max-width);
   margin: 0 auto;
   line-height: 1.8;
 }
@@ -264,8 +410,15 @@ a.amazon-btn:hover {
   color: var(--color-dark);
 }
 
+/* ══════════════════════════════════════════
+   Responsive
+   ══════════════════════════════════════════ */
+
 /* ── Tablet (≤ 900px) ── */
 @media (max-width: 900px) {
+  .landing-hero h1 { font-size: 2.2rem; }
+  .landing-grid { grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 20px; }
+  .landing-grid-cover { width: 150px; }
   .book-grid { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; }
   .book-grid-cover { width: 150px; }
   .book-cover { max-width: 190px; }
@@ -273,7 +426,7 @@ a.amazon-btn:hover {
 
 /* ── Mobile (≤ 600px) ── */
 @media (max-width: 600px) {
-  .site-header { padding: 16px 16px; }
+  .site-header { padding: 16px; }
 
   .site-nav {
     gap: 12px;
@@ -283,10 +436,29 @@ a.amazon-btn:hover {
   .site-logo {
     flex-basis: 100%;
     text-align: center;
-    font-size: 1.3rem;
+    font-size: 1.4rem;
     margin-right: 0;
-    margin-bottom: 6px;
+    margin-bottom: 4px;
   }
+
+  .nav-pills { justify-content: center; }
+
+  .nav-pill {
+    font-size: 0.85rem;
+    padding: 6px 14px;
+  }
+
+  .landing { padding: 0 16px; }
+  .landing-hero { padding: 2.5em 0.5em 2em; }
+  .landing-hero h1 { font-size: 1.8rem; }
+  .landing-hero p { font-size: 1rem; }
+  .landing-section { padding: 2em 0; }
+  .landing-section h2 { font-size: 1.3rem; }
+  .landing-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
+  .landing-grid-cover { width: 130px; }
+  .landing-grid-item,
+  .book-grid-item { padding: 16px 10px; }
+  .coming-soon-card { padding: 2em 1.2em; }
 
   .content { padding: 1.8em 16px; }
   .page-title { font-size: 1.5rem; }
@@ -297,19 +469,18 @@ a.amazon-btn:hover {
   .book-card { gap: 14px; }
   .book-thumb { width: 100px; }
 
-  .book-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 14px;
-  }
+  .book-grid { grid-template-columns: repeat(2, 1fr); gap: 14px; }
   .book-grid-cover { width: 130px; }
-  .book-grid-item { padding: 14px 10px; }
   .book-grid-title { font-size: 0.9em; }
 }
 
 /* ── Small phone (≤ 380px) ── */
 @media (max-width: 380px) {
-  .site-logo { font-size: 1.15rem; }
+  .site-logo { font-size: 1.2rem; }
+  .nav-pill { font-size: 0.8rem; padding: 5px 10px; }
+  .landing-hero h1 { font-size: 1.5rem; }
   .book-cover { max-width: 130px; }
   .book-thumb { width: 80px; }
   .book-grid-cover { width: 110px; }
+  .landing-grid-cover { width: 110px; }
 }

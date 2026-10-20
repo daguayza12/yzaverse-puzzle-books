@@ -193,19 +193,19 @@ function buildAboutPageHtml() {
   return `
 <p>Hi! I'm the creator behind <strong>Yzaverse Puzzle Books</strong>.</p>
 
-<p>I make puzzle books because I believe everyone deserves a quiet moment to focus, unwind, and feel accomplished — no screens required. Whether it's a child solving their very first sudoku or an adult unwinding after a long day, puzzles have a way of bringing calm and joy.</p>
+<p>I started making puzzle books because I wanted something simple, screen-free, and fun for all ages. Puzzles have always been a go-to for me when I need to slow down and focus, and I wanted to share that with others.</p>
 
 <h3>What I Make</h3>
 <ul>
-<li><strong>Sudoku for kids</strong> — easy 4x4 grids with friendly mascots, designed for ages 6–8</li>
-<li><strong>Sudoku for adults</strong> — classic 9x9 puzzles for calm, focused relaxation</li>
-<li><strong>Word search</strong> — NYC-themed puzzles in large, easy-to-read print</li>
+<li><strong>Sudoku for kids</strong> with easy 4x4 grids and friendly mascots, designed for ages 6 to 8</li>
+<li><strong>Sudoku for adults</strong> with classic 9x9 puzzles for quiet relaxation</li>
+<li><strong>Word search</strong> with NYC-themed puzzles in large, easy-to-read print</li>
 </ul>
 
-<p>Every book includes solutions, is thoughtfully designed, and is available in paperback on Amazon.</p>
+<p>Every book includes solutions and is available in paperback on Amazon.</p>
 
 <h3>Why Puzzles?</h3>
-<p>Puzzles are screen-free, portable, and timeless. They build confidence in kids, sharpen focus in adults, and make thoughtful gifts for anyone who enjoys a good challenge. I put care into every page — from the themes to the print size to the paper quality.</p>
+<p>Puzzles are portable, timeless, and don't need a charger. They help kids build confidence and give adults a break from screens. I care about the details: the themes, the print size, and the paper quality all matter.</p>
 
 `;
 }
