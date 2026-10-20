@@ -225,6 +225,11 @@ function main() {
   // .nojekyll
   writeFile(path.join(DOCS, '.nojekyll'), '');
 
+  // CNAME for custom domain (if not using project-page hosting)
+  if (!BASE_URL) {
+    writeFile(path.join(DOCS, 'CNAME'), 'yzaverse.com');
+  }
+
   copyCovers();
   copyCSS();
   buildPages();
